@@ -1,7 +1,7 @@
 package Pages;
 
 import Elements.Button;
-import Elements.Select;
+import Elements.Select;;
 import Elements.TextInput;
 import Generators.CredentialsGenerator;
 import org.openqa.selenium.By;
@@ -41,53 +41,50 @@ public class CheckoutPage extends BasePage {
         this.country = new Select(driver, countrySelector);
     }
 
-    public void InsertName(){
+    public void InsertName() {
         firstNameField.type("Name");
     }
 
-    public void InsertLastName(){
+    public void InsertLastName() {
         lastNameField.type("Last Name");
     }
 
-    public void InsertStreetAdress(){
+    public void InsertStreetAdress() {
         streetAdress.type("Street");
     }
 
-    public void InsertCity(){
+    public void InsertCity() {
         city.type("city");
     }
 
-    public void SelectCountry(){
+    public void SelectCountry() {
         country.choose("Brazil");
     }
 
-    public void InsertState(){
+    public void InsertState() {
         state = new TextInput(driver, stateSelector);
         state.type("State");
     }
 
-    public void InsertPostalCode(){
+    public void InsertPostalCode() {
         postalCode = new TextInput(driver, postalCodeSelector);
         postalCode.type("00-000");
     }
 
-    public void InsertEmailInput(){
+    public void InsertEmailInput() {
         emailInput = new TextInput(driver, emailInputSelector);
         emailInput.type("aaa@aaa.aaa");
     }
 
-    public void InsertPhoneInput(){
+    public void InsertPhoneInput() {
         phoneInput = new TextInput(driver, phoneInputSelector);
         phoneInput.type("000000000");
     }
 
-    public void ClickSubmitButton(){
+    public void ClickSubmitButton() {
         submitOrderButton = new Button(driver, submitOrderButtonSelector);
         submitOrderButton.clickWithJs();
     }
-
-
-
 
 
 }

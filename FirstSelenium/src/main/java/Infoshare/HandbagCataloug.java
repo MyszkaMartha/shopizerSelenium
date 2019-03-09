@@ -1,11 +1,9 @@
 package Infoshare;
 
 import DataModels.RegisteredUser;
-import Pages.CheckoutPage;
-import Pages.HandbagCataloguePage;
-import Pages.MainPage;
-import Pages.OrderConfirmationPage;
+import Pages.*;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -17,14 +15,13 @@ public class HandbagCataloug {
     private HandbagCataloguePage handbagCataloguePage;
     private OrderConfirmationPage orderConfirmationPage;
     private CheckoutPage checkoutPage;
-    private RegisteredUser user;
+    private OrderCompleted orderCompletedPage;
 
 
     @Before
     public void startBrowser() {
         driver = new ChromeDriver();
         mainPage = new MainPage(driver);
-        user = new RegisteredUser();
     }
 
     @Test
@@ -46,7 +43,8 @@ public class HandbagCataloug {
         checkoutPage.InsertPhoneInput();
         checkoutPage.InsertEmailInput();
         checkoutPage.ClickSubmitButton();
-
+        orderCompletedPage = new OrderCompleted(driver);
+        Assert.assertEquals(orderCompletedPage.ReadLabel(), "Order completed");
     }
 
     @After

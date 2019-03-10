@@ -1,5 +1,7 @@
 package Pages;
 
+import DataModels.Address;
+import DataModels.UserBase;
 import Elements.Button;
 import Elements.Select;;
 import Elements.TextInput;
@@ -19,7 +21,6 @@ public class CheckoutPage extends BasePage {
     private TextInput emailInput;
     private TextInput phoneInput;
     private Button submitOrderButton;
-    private CredentialsGenerator generator = new CredentialsGenerator();
 
     private By firstNameFieldSelector = By.cssSelector("[name='customer.billing.firstName']");
     private By lastNameFieldSelector = By.cssSelector("[name='customer.billing.lastName']");
@@ -41,39 +42,39 @@ public class CheckoutPage extends BasePage {
         this.country = new Select(driver, countrySelector);
     }
 
-    public void InsertName() {
-        firstNameField.type("Name");
+    public void InsertName(UserBase user) {
+        firstNameField.type(user.getFirstname());
     }
 
-    public void InsertLastName() {
-        lastNameField.type("Last Name");
+    public void InsertLastName(UserBase user) {
+        lastNameField.type(user.getLastname());
     }
 
-    public void InsertStreetAdress() {
-        streetAdress.type("Street");
+    public void InsertStreetAdress(Address address) {
+        streetAdress.type(address.getStreetAddress());
     }
 
-    public void InsertCity() {
-        city.type("city");
+    public void InsertCity(Address address) {
+        city.type(address.getCity());
     }
 
-    public void SelectCountry() {
-        country.choose("Brazil");
+    public void SelectCountry(Address address) {
+        country.choose(address.getCountry());
     }
 
-    public void InsertState() {
+    public void InsertState(Address address) {
         state = new TextInput(driver, stateSelector);
-        state.type("State");
+        state.type(address.getState());
     }
 
-    public void InsertPostalCode() {
+    public void InsertPostalCode(Address address) {
         postalCode = new TextInput(driver, postalCodeSelector);
-        postalCode.type("00-000");
+        postalCode.type(address.getPostalCode());
     }
 
-    public void InsertEmailInput() {
+    public void InsertEmailInput(UserBase user) {
         emailInput = new TextInput(driver, emailInputSelector);
-        emailInput.type("aaa@aaa.aaa");
+        emailInput.type(user.getEmail());
     }
 
     public void InsertPhoneInput() {

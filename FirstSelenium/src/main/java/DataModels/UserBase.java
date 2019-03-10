@@ -11,7 +11,7 @@ public class UserBase {
     protected boolean isRegistred;
 
 
-    protected UserBase(){
+    public UserBase() {
         this.firstname = CredentialsGenerator.generateFirstname();
         this.lastname = CredentialsGenerator.generateLastname();
         this.address = new Address(false);
